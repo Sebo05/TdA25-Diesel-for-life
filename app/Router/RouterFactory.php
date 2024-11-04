@@ -16,6 +16,7 @@ final class RouterFactory
 	{
 		$router = new RouteList;
 		$router->addRoute("api","Api:getOrganization");
+		$router->addRoute('page/show/<id>', 'Page:show');
 
 
 		$router->addRoute('<presenter>/<action>[/<id>]', 'Homepage:default');

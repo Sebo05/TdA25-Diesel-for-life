@@ -27,7 +27,6 @@ final class EditPresenter extends Nette\Application\UI\Presenter
         $form->addTextArea('content', 'Obsah:')
             ->setRequired('Prosím zadejte obsah stránky.');
             
-        //na toto nesahej 
         $form->addSubmit('send', 'Uložit');
         $form->onSuccess[] = [$this, 'pageFormSucceeded'];
 
@@ -35,33 +34,34 @@ final class EditPresenter extends Nette\Application\UI\Presenter
     }
 
     public function pageFormSucceeded(Form $form, \stdClass $values): void
-    {
-        $id = $this->getParameter('id');
+{
+    $id = $this->getParameter('id');
 
-        if ($id) {
-            $page = $this->database->table('page')->get($id);
+    if ($id) {
+        $page = $this->database->table('page')->get($id);
 
-            if (!$page) {
-                $this->error('Stránka nebyla nalezena.', Nette\Http\IResponse::S404_NOT_FOUND);
-                return;
-            }
-
-            $page->update([
-                'title' => $values->title,
-                'description' => $values->description,
-                'content' => $values->content,
-            ]);
-        } else {
-            $this->database->table('page')->insert([
-                'title' => $values->title,
-                'description' => $values->description,
-                'content' => $values->content,
-            ]);
+        if (!$page) {
+            $this->error('Stránka nebyla nalezena.', Nette\Http\IResponse::S404_NOT_FOUND);
+            return;
         }
 
-        $this->flashMessage('Stránka byla úspěšně uložena.', 'success');
-        $this->redirect('Page:show', ['pageId' => $id]);
+        $page->update([
+            'title' => $values->title,
+            'description' => $values->description,
+            'content' => $values->content,
+        ]);
+    } else {
+        $page = $this->database->table('page')->insert([
+            'title' => $values->title,
+            'description' => $values->description,
+            'content' => $values->content,
+        ]);
+        $id = $page->id;
     }
+
+    $this->flashMessage('Stránka byla vytvorena.', 'success');
+    $this->redirect('Page:show', ['id' => $id]);
+}
 
     public function renderEdit(int $id): void
     {

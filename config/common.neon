@@ -7,9 +7,9 @@ application:
 		*: App\*Module\Presenters\*Presenter
 
 database:
-	dsn: 'mysql:unix_socket=/run/mysqld/mysqld.sock;dbname=nette'
-	user: root
-	password:
+	dsn: 'mysql:host=89.203.248.247;dbname=ondryass'
+	user: sebik
+	password: '12345678'
 
 session:
 	expiration: 14 days

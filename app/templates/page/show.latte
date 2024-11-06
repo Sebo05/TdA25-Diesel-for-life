@@ -1,0 +1,19 @@
+{block head}
+    <head>
+        <title>{$page->title}</title>
+    </head>
+{/block}
+{block content}
+{include ../header.latte}
+
+{*Toto tady nebude ale nevim kam to dat, takze prozatim to bude tady dokut neudelam admin tak tu a budes si to muset pokazde zakomentovat*}
+    <a n:href="Edit:edit $page->id">Edit</a>
+    
+    <div class="">
+        <h1>{$page->title}</h1>
+    </div>
+    <div class="">
+        {$page->content|noescape}
+    </div>
+
+{/block}

@@ -1,0 +1,20 @@
+{block head}
+    <title>Kontakty</title>
+{/block}
+{block content}
+    {include ../header.latte}
+    <div class="">
+        <div class="">
+            <h1>{$contact->jmeno}</h1>
+        </div>
+        <div class="">
+            <h1>{$contact->telefon}</h1>
+        </div>
+        <div class="">
+            <h1>{$contact->email}</h1>
+        </div>
+        <div class="">
+            <h1>{$contact->pozice}</h1>
+        </div>
+    </div>
+{/block}

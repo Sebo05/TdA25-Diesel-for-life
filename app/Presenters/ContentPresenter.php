@@ -62,4 +62,13 @@ final class ContentPresenter extends Nette\Application\UI\Presenter{
         }
         $this['contentForm']->setDefaults($content->toArray());
     }
+
+    public function renderContent(int $id): void{
+        $content = $this->database->table('content')->get('id');
+
+        if(!$content){
+            $this->error('Obsah nebyl nalezen');
+        }
+        $this->template->content = $content;
+    }
 }

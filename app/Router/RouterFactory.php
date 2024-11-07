@@ -18,7 +18,7 @@ final class RouterFactory
 		$router->addRoute("api","Api:getOrganization");
 		$router->addRoute('admin', 'admin:admin');
 		$router->addRoute('page/show/<id>', 'Page:show');
-
+		$router->addRoute('content/show/<id>','Content:default');
 
 		$router->addRoute('<presenter>/<action>[/<id>]', 'Homepage:default');
 		return $router;

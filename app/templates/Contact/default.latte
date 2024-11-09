@@ -2,19 +2,18 @@
     <title>Kontakty</title>
 {/block}
 {block content}
-    {include ../header.latte}
-    <div class="">
-        <div class="">
-            <h1>{$contact->jmeno}</h1>
-        </div>
-        <div class="">
-            <h1>{$contact->telefon}</h1>
-        </div>
-        <div class="">
-            <h1>{$contact->email}</h1>
-        </div>
-        <div class="">
-            <h1>{$contact->pozice}</h1>
-        </div>
+<div class="contact-wrapper">
+    <div class="contact-box">
+        <h2>{$contact->jmeno}</h2>
+        <p>{$contact->telefon}</p>
+        <p>{$contact->email}</p>
+        <p>{$contact->pozice}</p>
     </div>
+    <div class="contact-map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509371!2d144.96305791531843!3d-37.81627977975179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f2f0174f%3A0x5045675218ce6e0!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1613987327874!5m2!1sen!2sus"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+    </div>
+</div>
 {/block}

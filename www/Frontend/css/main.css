@@ -13,11 +13,11 @@ body {
 
 img {
     vertical-align: middle;
-    width: 100%; 
+    width: 100%;
 }
 
 .slideshow-container {
-    width: 100vw; 
+    width: 100vw;
     position: relative;
     margin: 0 auto;
     overflow: hidden;
@@ -47,33 +47,43 @@ img {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Caption text */
 .text {
     color: #f2f2f2;
-    font-size: 15px;
+    font-size: 24px;
     padding: 8px 12px;
     position: absolute;
-    bottom: 8px;
-    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
+    font-weight: bold;
+    background-color: rgba(0, 112, 187, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 4px;
 }
 
-.active, .dot:hover {
+/* Dots styling */
+.dots-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.dot.active, .dot:hover {
     background-color: #717171;
-}
-
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@keyframes fade {
-    from { opacity: 0.4; }
-    to { opacity: 1; }
-}
-
-@media only screen and (max-width: 300px) {
-    .prev, .next, .text { font-size: 11px; }
 }
 
 .full-width-bg {
@@ -89,13 +99,14 @@ img {
 }
 
 .content-block {
-    max-width: 1200px; 
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 20px 50px; 
+    padding: 20px 50px;
 }
 
 .content-header h1 {
     font-size: 24px;
+    text-align: center;
     margin-bottom: 10px;
 }
 
@@ -103,4 +114,51 @@ img {
     font-size: 16px;
     line-height: 1.5;
     color: #333;
+}
+
+.content-pictures {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    padding-top: 40px;
+}
+
+.game-box {
+    position: relative;
+    width: 400px;
+    height: 250px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-top: 20px;
+}
+
+.game-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.game-box:hover img {
+    transform: scale(1.05);
+}
+
+.game-caption {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    font-size: 18px;
+    width: 100%;
+    transition: background 0.3s ease;
+}
+
+.game-box:hover .game-caption {
+    background: rgba(0, 0, 0, 0.6);
 }

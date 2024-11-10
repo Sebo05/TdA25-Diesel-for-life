@@ -1,0 +1,40 @@
+.gameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(15, 40px);
+    grid-template-rows: repeat(15, 40px);
+    gap: 0;
+    border: 1px solid black; 
+}
+.cell {
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    border: 1px solid black; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+#restartBtn {
+    background-color: #0070bb;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    margin-bottom: 40px; 
+}
+
+#restartBtn:hover {
+    background-color: #E31837;
+}
+
